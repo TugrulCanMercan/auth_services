@@ -8,4 +8,7 @@ export default class ResponseDto{
         this.status = status
 
     }
+    getData(){
+        return this.data
+    }
 }

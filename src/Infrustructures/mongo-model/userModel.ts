@@ -1,6 +1,10 @@
 import { Schema } from "mongoose";
+import {randomUUID} from "crypto";
+import { v4 as uuidv4 } from 'uuid';
 
 const userModel = new Schema({
+    _id: {type: String, default: uuidv4}
+    ,
     email: {
         type: String,
         match: [
@@ -16,7 +20,7 @@ const userModel = new Schema({
         type: String,
         required: [true, 'Please enter a password'],
         minlength: [6, 'Password must be at least 6 characters'],
-        select: false,
+        // select: false,
       },
 
 })

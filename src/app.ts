@@ -3,7 +3,11 @@ import express from "express";
 import routerModule  from "./RouterModule";
 
 import dbConnection from "./Infrustructures/Db-access/db-connection";
+
 import 'dotenv/config'
+import userRepo from "./Infrustructures/Repository/userRepo";
+
+
 
 const app = express()
 const PORT = process.env.PORT || 3000 

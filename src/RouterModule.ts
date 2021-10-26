@@ -3,7 +3,6 @@ import  LoginApi  from "./Api/LoginApi";
 const router = Router()
 
 
-
 const routerModule = {
     imports:[
         LoginApi,
