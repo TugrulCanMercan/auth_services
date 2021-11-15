@@ -1,16 +1,23 @@
 import { Router } from "express";
 import  LoginApi  from "./Api/LoginApi";
-const router = Router()
+import SignUpApi from "./Api/SignUpApi"
+import userRepo from "./Infrustructures/Repository/userRepo";
 
 
-const routerModule = {
-    imports:[
-        LoginApi,
+
+
+const routerModule = (UserRepository:any)=> {
+    const router = Router()
+    const imports = [
+        LoginApi(UserRepository),
+        SignUpApi(UserRepository)
 
     ]
+    router.use(imports)
+    return router
 }
 
 
-router.use(routerModule.imports)
 
-export default router
+
+export default routerModule

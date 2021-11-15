@@ -32,7 +32,8 @@ export default class loginController implements Repository{
         if(user != null){
             const match = await bcrypt.compare(req.body.password,user.getPassword())
             if(match){
-                const token = jwt.sign({id:123},process.env.JSON_WEB_SECRET_TOKEN!)
+
+                const token = jwt.sign({ID:user.getUUID()},process.env.JSON_WEB_SECRET_TOKEN!)
                 return new ResponseDto("giriş başarılı",token,"200")
             }else {
                 return new ResponseDto("bu kullanıcı bulunamadı",null,"401")
